@@ -3,7 +3,7 @@ Experiments with Avro and Confluent.
 ### Avro IDL
 
 .avsc Avro schema files are generated from the Avro .idl files.  More on Avro IDL here:
-https://avro.apache.org/docs/1.7.7/idl.html#imports
+https://avro.apache.org/docs/1.7.7/idl.html
 
 This seems to be a better way to maintain Avro schemas, as the syntax is more concise,
 and you can import and reuse your defined records more easily.
