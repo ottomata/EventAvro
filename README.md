@@ -12,7 +12,7 @@ To generate the schmea files, download http://www.gtlib.gatech.edu/pub/apache/av
 and then
 
 ```
-java -jar ../avro-tools-1.7.7.jar idl2schemata EditEvent.idl schemas
+java -jar ./avro-tools-1.7.7.jar idl2schemata EditEvent.idl schemas
 ````
 
 Schema .avsc and also .java class generation would usually be automated by Maven plugins.
