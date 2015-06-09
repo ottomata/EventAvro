@@ -1,0 +1,23 @@
+@namespace("org.wikimedia.analytics")
+protocol Event {
+    /** Event metadata.  All Events should include this record */
+    record EventMeta {
+        /** $wgDBName (for example: 'enwiki') */
+        string wiki;
+        /** Request host. 'window.location.hostname' on client-side events; $_SERVER['HTTP_HOST'] on server */
+        string webHost;
+        /** Hostname of server emitting the log line */
+        string recvFrom;
+        /** Unix timestamp of event */
+        long timestamp;
+        /** Hashed IP address of client */
+        string clientIp;
+        /** sequence ID */
+        long seqId;
+        /** Unique event identifier */
+        string uuid;
+        /** User Agent from HTTP request */
+        string userAgent;
+    }
+}
+

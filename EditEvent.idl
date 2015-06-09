@@ -1,0 +1,22 @@
+@namespace("org.wikimedia.analytics")
+protocol EditEvent {
+    import idl "Event.idl";
+
+    /** Possible types of edit actions */
+    enum EditAction {
+         init,
+         ready,
+         saveIntent,
+         saveAttempt,
+         saveSuccess,
+         saveFailure,
+         abort
+    }
+
+    /** Represents a single edit event */
+    record EditEvent {
+        EventMeta meta;
+        EditAction action;
+    }
+
+}

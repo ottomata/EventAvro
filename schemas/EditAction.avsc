@@ -1,0 +1,7 @@
+{
+  "type" : "enum",
+  "name" : "EditAction",
+  "namespace" : "org.wikimedia.analytics",
+  "doc" : "Possible types of edit actions",
+  "symbols" : [ "init", "ready", "saveIntent", "saveAttempt", "saveSuccess", "saveFailure", "abort" ]
+}

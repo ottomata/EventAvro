@@ -1,0 +1,39 @@
+{
+  "type" : "record",
+  "name" : "EventMeta",
+  "namespace" : "org.wikimedia.analytics",
+  "doc" : "Event metadata.  All Events should include this record",
+  "fields" : [ {
+    "name" : "wiki",
+    "type" : "string",
+    "doc" : "$wgDBName (for example: 'enwiki')"
+  }, {
+    "name" : "webHost",
+    "type" : "string",
+    "doc" : "Request host. 'window.location.hostname' on client-side events; $_SERVER['HTTP_HOST'] on server"
+  }, {
+    "name" : "recvFrom",
+    "type" : "string",
+    "doc" : "Hostname of server emitting the log line"
+  }, {
+    "name" : "timestamp",
+    "type" : "long",
+    "doc" : "Unix timestamp of event"
+  }, {
+    "name" : "clientIp",
+    "type" : "string",
+    "doc" : "Hashed IP address of client"
+  }, {
+    "name" : "seqId",
+    "type" : "long",
+    "doc" : "sequence ID"
+  }, {
+    "name" : "uuid",
+    "type" : "string",
+    "doc" : "Unique event identifier"
+  }, {
+    "name" : "userAgent",
+    "type" : "string",
+    "doc" : "User Agent from HTTP request"
+  } ]
+}
