@@ -51,8 +51,8 @@ To be forwards compatible: Never delete fields.
 # POST a newly modified schema to an existing subject:
 curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
   --data "{\"schema\": $(./avro_stringify.js ./avro/schema/EditEvent.avsc) }" \
-  http://localhost:8081/subjects/EditEvent/versions
-
+  http://localhost:8081/subjects/EditEvent/versions/3
+```
 
 ## Confluent Kafka REST Proxy
 
