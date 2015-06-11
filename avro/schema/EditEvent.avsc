@@ -2,7 +2,7 @@
   "type" : "record",
   "name" : "EditEvent",
   "namespace" : "org.wikimedia.mediawiki",
-  "doc" : "Represents generic events related to editing activity.",
+  "doc" : "Represents an edit event.",
   "fields" : [ {
     "name" : "meta",
     "type" : {
@@ -49,7 +49,7 @@
     "type" : {
       "type" : "enum",
       "name" : "EditAction",
-      "doc" : "Possible types of edit actions",
+      "doc" : "The actions involved in an attempt to edit a page.\n        init: Initiation of the editor\n        ready: Editor is initialised and ready for user input – 'cursor blinking'\n        saveIntent: Editor pre-save button (if available) has been activated, showing user intent to save (regardless of whether they continue)\n        saveAttempt: Editor save button has been activated, showing user attempt to save (regardless of success)\n        saveSuccess: Editor has successfully saved and user has been shown a post-edit status on the client-side\n        saveFailure: Editor has not successfully saved and user has been shown a save failure reason on the client-side\n        abort: Editor has been aborted by user action",
       "symbols" : [ "init", "ready", "saveIntent", "saveAttempt", "saveSuccess", "saveFailure", "abort" ]
     }
   }, {

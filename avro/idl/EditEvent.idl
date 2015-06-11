@@ -1,10 +1,19 @@
 @namespace("org.wikimedia.mediawiki")
-protocol Edit {
+protocol EditEvent {
     import idl "Event.idl";
     import idl "Page.idl";
     import idl "User.idl";
 
-    /** Possible types of edit actions */
+    /**
+        The actions involved in an attempt to edit a page.
+        init: Initiation of the editor
+        ready: Editor is initialised and ready for user input \u2013 'cursor blinking'
+        saveIntent: Editor pre-save button (if available) has been activated, showing user intent to save (regardless of whether they continue)
+        saveAttempt: Editor save button has been activated, showing user attempt to save (regardless of success)
+        saveSuccess: Editor has successfully saved and user has been shown a post-edit status on the client-side
+        saveFailure: Editor has not successfully saved and user has been shown a save failure reason on the client-side
+        abort: Editor has been aborted by user action
+    */
     enum EditAction {
          init,
          ready,
@@ -62,7 +71,7 @@ protocol Edit {
     }
 
     /** Represents an edit event. */
-    record Edit {
+    record EditEvent {
         org.wikimedia.analytics.EventMeta meta;
 
         EditAction action;
