@@ -1,0 +1,13 @@
+{
+    "action": "saveAttempt",
+    "meta": {
+        "wiki": "en.wikipedia.org",
+        "webHost": "mediawiki-vagrant.dev",
+        "recvFrom": "mediawiki-vagrant.dev",
+        "timestamp": 1433974402,
+        "clientIp": "127.0.0.1",
+        "seqId": 1,
+        "uuid": "05fcf26",
+        "userAgent": "nonya"
+    }
+}
