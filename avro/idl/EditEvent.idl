@@ -76,27 +76,30 @@ protocol EditEvent {
 
         EditAction action;
 
-        union { null, EditActionInitType } action_init_type;
-        union { null, EditActionMechanism } action_init_mechanism;
-        union { null, int } action_ready_timing;
-        union { null, int } action_save_intent_timing;
-        union { null, int } action_save_attempt_timing;
-        union { null, int } action_save_success_timing;
+        union { null, EditActionInitType } action_init_type = null;
+        union { null, EditActionMechanism } action_init_mechanism = null;
+        union { null, int } action_ready_timing = null;
+        union { null, int } action_save_intent_timing = null;
+        union { null, int } action_save_attempt_timing = null;
+        union { null, int } action_save_success_timing = null;
 
-        union { null, EditActionSaveFailureType } action_save_failure_type;
-        union { null, string } action_save_failure_message;
-        union { null, int } action_save_failure_timing;
+        union { null, EditActionSaveFailureType } action_save_failure_type = null;
+        union { null, string } action_save_failure_message = null;
+        union { null, int } action_save_failure_timing = null;
 
-        union { null, EditActionAbortType } action_abort_type;
-        union { null, EditActionAbortMechanism } action_abort_mechanism;
-        union { null, int } action_abort_timing;
+        union { null, EditActionAbortType } action_abort_type = null;
+        union { null, EditActionAbortMechanism } action_abort_mechanism = null;
+        union { null, int } action_abort_timing = null;
 
-        string mediawiki_version;
-        union { null, Page } page;
+        union { null, string} mediawiki_version = null;
+        union { null, Page } page = null;
 
-        string editing_session_id;
+        /**
+            A string of 32 alphanumeric characters, unique to the current
+            page view session; used for grouping events.
+        */
+        union { null, string } editing_session_id = null;
 
-        User user;
+        union { null, User } user = null;
     }
-
 }

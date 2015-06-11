@@ -5,10 +5,21 @@
   "fields" : [ {
     "name" : "user_id",
     "type" : "int",
-    "doc" : "The user id (0 if logged out)."
+    "doc" : "The user id (0 if logged out).",
+    "default" : 0
   }, {
     "name" : "edit_count",
     "type" : "int",
-    "doc" : "The total number of edits of the user."
+    "doc" : "The total number of edits of the user.",
+    "default" : 0
+  }, {
+    "name" : "user_class",
+    "type" : [ "null", {
+      "type" : "enum",
+      "name" : "UserClass",
+      "doc" : "A flag for a kind of user about whom we don't care\n        or for whom we can't measure edit counts.",
+      "symbols" : [ "IP", "bot" ]
+    } ],
+    "default" : null
   } ]
 }

@@ -39,7 +39,20 @@ curl -X GET http://localhost:8081/schemas/ids/$unique_schema_id
 curl -X GET http://localhost:8081/subjects/$schema_name/versions/$schema_version
 
 # Show just the .avsc JSON schema
-curl -X GET http://localhost:8081/schemas/ids/$unique_schema_id 2>/dev/null | jq .schema | ./json_unstringify.sh | jq .```
+curl -X GET http://localhost:8081/schemas/ids/$unique_schema_id 2>/dev/null | jq .schema | ./json_unstringify.sh | jq .
+```
+
+### Evolve a schema
+To be backwards compatible: Only ever add fields, and always specificy default values, even for optional ```union { null, ...}``` types.
+
+To be forwards compatible: Never delete fields.
+
+```bash
+# POST a newly modified schema to an existing subject:
+curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+  --data "{\"schema\": $(./avro_stringify.js ./avro/schema/EditEvent.avsc) }" \
+  http://localhost:8081/subjects/EditEvent/versions
+
 
 ## Confluent Kafka REST Proxy
 
@@ -73,5 +86,5 @@ curl -X POST -H "Content-Type: application/vnd.kafka.v1+json" \
 
 # now start consuming messages with this consumer instance
 curl -X GET -H "Accept: application/vnd.kafka.avro.v1+json" \
-      http://localhost:8082/consumers/my_avro_consumer/instances/my_avro_consumer_instance_1/topics/EditEvent | jq .
+      http://localhost:8082/consumers/my_avro_consumer/instances/my_avro_consumer_instance_1/topics/EditEvent 2>/dev/null | jq .
 

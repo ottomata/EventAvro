@@ -12,9 +12,11 @@ protocol User {
 
     record User {
         /** The user id (0 if logged out). */
-        int user_id;
+        int user_id = 0;
 
         /** The total number of edits of the user. */
-        int edit_count;
+        int edit_count = 0;
+
+        union { null, UserClass } user_class = null;
     }
 }

@@ -58,59 +58,72 @@
       "type" : "enum",
       "name" : "EditActionInitType",
       "symbols" : [ "page", "section" ]
-    } ]
+    } ],
+    "default" : null
   }, {
     "name" : "action_init_mechanism",
     "type" : [ "null", {
       "type" : "enum",
       "name" : "EditActionMechanism",
       "symbols" : [ "click", "new", "url" ]
-    } ]
+    } ],
+    "default" : null
   }, {
     "name" : "action_ready_timing",
-    "type" : [ "null", "int" ]
+    "type" : [ "null", "int" ],
+    "default" : null
   }, {
     "name" : "action_save_intent_timing",
-    "type" : [ "null", "int" ]
+    "type" : [ "null", "int" ],
+    "default" : null
   }, {
     "name" : "action_save_attempt_timing",
-    "type" : [ "null", "int" ]
+    "type" : [ "null", "int" ],
+    "default" : null
   }, {
     "name" : "action_save_success_timing",
-    "type" : [ "null", "int" ]
+    "type" : [ "null", "int" ],
+    "default" : null
   }, {
     "name" : "action_save_failure_type",
     "type" : [ "null", {
       "type" : "enum",
       "name" : "EditActionSaveFailureType",
       "symbols" : [ "userBadToken", "userNewUser", "extensionAbuseFilter", "extensionCaptcha", "extensionSpamBlacklist", "extensionTitleBlacklist", "responseEmpty", "responseUnknown", "editPageDeleted", "editConflict" ]
-    } ]
+    } ],
+    "default" : null
   }, {
     "name" : "action_save_failure_message",
-    "type" : [ "null", "string" ]
+    "type" : [ "null", "string" ],
+    "default" : null
   }, {
     "name" : "action_save_failure_timing",
-    "type" : [ "null", "int" ]
+    "type" : [ "null", "int" ],
+    "default" : null
   }, {
     "name" : "action_abort_type",
     "type" : [ "null", {
       "type" : "enum",
       "name" : "EditActionAbortType",
       "symbols" : [ "preinit", "nochange", "switchwith", "switchwithout", "abandon", "abandonMidsave" ]
-    } ]
+    } ],
+    "default" : null
   }, {
     "name" : "action_abort_mechanism",
     "type" : [ "null", {
       "type" : "enum",
       "name" : "EditActionAbortMechanism",
       "symbols" : [ "cancel", "navigate", "navigate_back", "navigate_read" ]
-    } ]
+    } ],
+    "default" : null
   }, {
     "name" : "action_abort_timing",
-    "type" : [ "null", "int" ]
+    "type" : [ "null", "int" ],
+    "default" : null
   }, {
     "name" : "mediawiki_version",
-    "type" : "string"
+    "type" : [ "null", "string" ],
+    "default" : null
   }, {
     "name" : "page",
     "type" : [ "null", {
@@ -119,42 +132,62 @@
       "fields" : [ {
         "name" : "page_id",
         "type" : "int",
-        "doc" : "ID of the page the user is attempting to edit."
+        "doc" : "ID of the page the user is attempting to edit.",
+        "default" : 0
       }, {
         "name" : "page_title",
         "type" : "string",
-        "doc" : "Full title of the page the user is attempting to edit,\n            including namespace (wgPageName format). This is needed\n            to log edit activity on redlinks, as pageId and revId are\n            not available."
+        "doc" : "Full title of the page the user is attempting to edit,\n            including namespace (wgPageName format). This is needed\n            to log edit activity on redlinks, as pageId and revId are\n            not available.",
+        "default" : ""
       }, {
         "name" : "page_ns",
-        "type" : "string",
-        "doc" : "Namespace ID of the page the user is attempting to edit."
+        "type" : "int",
+        "doc" : "Namespace ID of the page the user is attempting to edit.",
+        "default" : -1
       }, {
         "name" : "page_revid",
         "type" : "int",
-        "doc" : "Current revision of the page the user is currently attempting\n            to edit, if available.\\n\\nFor action=saveAttempt, it is the old\n            revId for the page, since it is not yet known whether the edit\n            will succeed.\\n\\nIs updated to the latest revision for\n            action=saveSuccess events."
+        "doc" : "Current revision of the page the user is currently attempting\n            to edit, if available.\\n\\nFor action=saveAttempt, it is the old\n            revId for the page, since it is not yet known whether the edit\n            will succeed.\\n\\nIs updated to the latest revision for\n            action=saveSuccess events.",
+        "default" : -1
       }, {
         "name" : "page_length",
         "type" : "int",
-        "doc" : "Length of the wikitext of the page the user is currently\n            attempting to edit."
+        "doc" : "Length of the wikitext of the page the user is currently\n            attempting to edit.",
+        "default" : -1
       } ]
-    } ]
+    } ],
+    "default" : null
   }, {
     "name" : "editing_session_id",
-    "type" : "string"
+    "type" : [ "null", "string" ],
+    "doc" : "A string of 32 alphanumeric characters, unique to the current\n            page view session; used for grouping events.",
+    "default" : null
   }, {
     "name" : "user",
-    "type" : {
+    "type" : [ "null", {
       "type" : "record",
       "name" : "User",
       "fields" : [ {
         "name" : "user_id",
         "type" : "int",
-        "doc" : "The user id (0 if logged out)."
+        "doc" : "The user id (0 if logged out).",
+        "default" : 0
       }, {
         "name" : "edit_count",
         "type" : "int",
-        "doc" : "The total number of edits of the user."
+        "doc" : "The total number of edits of the user.",
+        "default" : 0
+      }, {
+        "name" : "user_class",
+        "type" : [ "null", {
+          "type" : "enum",
+          "name" : "UserClass",
+          "doc" : "A flag for a kind of user about whom we don't care\n        or for whom we can't measure edit counts.",
+          "symbols" : [ "IP", "bot" ]
+        } ],
+        "default" : null
       } ]
-    }
+    } ],
+    "default" : null
   } ]
 }

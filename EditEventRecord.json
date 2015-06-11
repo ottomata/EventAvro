@@ -9,5 +9,27 @@
         "seqId": 1,
         "uuid": "05fcf26",
         "userAgent": "nonya"
-    }
+    },
+
+    "action_init_type": null,
+    "action_init_mechanism": null,
+    "action_ready_timing": null,
+    "action_save_intent_timing": null,
+    "action_save_attempt_timing": null,
+    "action_save_success_timing": null,
+
+    "action_save_failure_type": null,
+    "action_save_failure_message": null,
+    "action_save_failure_timing": null,
+
+    "action_abort_type": null,
+    "action_abort_mechanism": null,
+    "action_abort_timing": null,
+
+    "mediawiki_version": null,
+    "page": null,
+
+    "editing_session_id": null,
+
+    "user": null
 }

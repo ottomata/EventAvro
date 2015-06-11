@@ -2,7 +2,7 @@
 protocol Page {
     record Page {
         /** ID of the page the user is attempting to edit. */
-        int page_id;
+        int page_id = 0;
 
         /**
             Full title of the page the user is attempting to edit,
@@ -10,10 +10,10 @@ protocol Page {
             to log edit activity on redlinks, as pageId and revId are
             not available.
         */
-        string page_title;
+        string page_title = "";
 
         /** Namespace ID of the page the user is attempting to edit. */
-        string page_ns;
+        int page_ns = -1;
 
         /**
             Current revision of the page the user is currently attempting
@@ -22,12 +22,12 @@ protocol Page {
             will succeed.\n\nIs updated to the latest revision for
             action=saveSuccess events.
         */
-        int page_revid;
+        int page_revid = -1;
 
         /**
             Length of the wikitext of the page the user is currently
             attempting to edit.
         */
-        int page_length;
+        int page_length = -1;
     }
 }
