@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "EditActionMechanism",
+  "namespace" : "org.wikimedia.mediawiki",
+  "symbols" : [ "click", "new", "url" ]
+}

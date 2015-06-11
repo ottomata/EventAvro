@@ -1,0 +1,14 @@
+{
+  "type" : "record",
+  "name" : "User",
+  "namespace" : "org.wikimedia.mediawiki",
+  "fields" : [ {
+    "name" : "user_id",
+    "type" : "int",
+    "doc" : "The user id (0 if logged out)."
+  }, {
+    "name" : "edit_count",
+    "type" : "int",
+    "doc" : "The total number of edits of the user."
+  } ]
+}

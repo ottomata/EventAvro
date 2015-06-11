@@ -1,0 +1,7 @@
+{
+  "type" : "enum",
+  "name" : "UserClass",
+  "namespace" : "org.wikimedia.mediawiki",
+  "doc" : "A flag for a kind of user about whom we don't care\n        or for whom we can't measure edit counts.",
+  "symbols" : [ "IP", "bot" ]
+}

@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "EditActionInitType",
+  "namespace" : "org.wikimedia.mediawiki",
+  "symbols" : [ "page", "section" ]
+}

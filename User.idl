@@ -1,0 +1,20 @@
+@namespace("org.wikimedia.mediawiki")
+protocol User {
+
+    /**
+        A flag for a kind of user about whom we don't care
+        or for whom we can't measure edit counts.
+    */
+    enum UserClass {
+        IP,
+        bot
+    }
+
+    record User {
+        /** The user id (0 if logged out). */
+        int user_id;
+
+        /** The total number of edits of the user. */
+        int edit_count;
+    }
+}

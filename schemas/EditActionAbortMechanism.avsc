@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "EditActionAbortMechanism",
+  "namespace" : "org.wikimedia.mediawiki",
+  "symbols" : [ "cancel", "navigate", "navigate_back", "navigate_read" ]
+}

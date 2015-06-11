@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "EditActionSaveFailureType",
+  "namespace" : "org.wikimedia.mediawiki",
+  "symbols" : [ "userBadToken", "userNewUser", "extensionAbuseFilter", "extensionCaptcha", "extensionSpamBlacklist", "extensionTitleBlacklist", "responseEmpty", "responseUnknown", "editPageDeleted", "editConflict" ]
+}

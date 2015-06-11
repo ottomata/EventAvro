@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "Editor",
+  "namespace" : "org.wikimedia.mediawiki",
+  "symbols" : [ "visualeditor", "wikitext", "other" ]
+}

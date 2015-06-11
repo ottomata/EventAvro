@@ -1,0 +1,6 @@
+{
+  "type" : "enum",
+  "name" : "EditActionAbortType",
+  "namespace" : "org.wikimedia.mediawiki",
+  "symbols" : [ "preinit", "nochange", "switchwith", "switchwithout", "abandon", "abandonMidsave" ]
+}

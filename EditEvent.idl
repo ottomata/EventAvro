@@ -1,6 +1,8 @@
-@namespace("org.wikimedia.analytics")
-protocol EditEvent {
+@namespace("org.wikimedia.mediawiki")
+protocol Edit {
     import idl "Event.idl";
+    import idl "Page.idl";
+    import idl "User.idl";
 
     /** Possible types of edit actions */
     enum EditAction {
@@ -13,10 +15,79 @@ protocol EditEvent {
          abort
     }
 
-    /** Represents a single edit event */
-    record EditEvent {
-        EventMeta meta;
+    enum EditActionInitType {
+        page,
+        section
+    }
+
+    enum EditActionMechanism {
+        click,
+        new,
+        url
+    }
+
+    enum EditActionSaveFailureType {
+        userBadToken,
+        userNewUser,
+        extensionAbuseFilter,
+        extensionCaptcha,
+        extensionSpamBlacklist,
+        extensionTitleBlacklist,
+        responseEmpty,
+        responseUnknown,
+        editPageDeleted,
+        editConflict
+    }
+
+    enum EditActionAbortType {
+        preinit,
+        nochange,
+        switchwith,
+        switchwithout,
+        abandon,
+        abandonMidsave
+    }
+
+    enum EditActionAbortMechanism {
+        cancel,
+        navigate,
+        navigate_back,
+        navigate_read
+    }
+
+    enum Editor {
+        visualeditor,
+        wikitext,
+        other
+    }
+
+    /** Represents an edit event. */
+    record Edit {
+        org.wikimedia.analytics.EventMeta meta;
+
         EditAction action;
+
+        union { null, EditActionInitType } action_init_type;
+        union { null, EditActionMechanism } action_init_mechanism;
+        union { null, int } action_ready_timing;
+        union { null, int } action_save_intent_timing;
+        union { null, int } action_save_attempt_timing;
+        union { null, int } action_save_success_timing;
+
+        union { null, EditActionSaveFailureType } action_save_failure_type;
+        union { null, string } action_save_failure_message;
+        union { null, int } action_save_failure_timing;
+
+        union { null, EditActionAbortType } action_abort_type;
+        union { null, EditActionAbortMechanism } action_abort_mechanism;
+        union { null, int } action_abort_timing;
+
+        string mediawiki_version;
+        union { null, Page } page;
+
+        string editing_session_id;
+
+        User user;
     }
 
 }

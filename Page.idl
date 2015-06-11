@@ -1,0 +1,33 @@
+@namespace("org.wikimedia.mediawiki")
+protocol Page {
+    record Page {
+        /** ID of the page the user is attempting to edit. */
+        int page_id;
+
+        /**
+            Full title of the page the user is attempting to edit,
+            including namespace (wgPageName format). This is needed
+            to log edit activity on redlinks, as pageId and revId are
+            not available.
+        */
+        string page_title;
+
+        /** Namespace ID of the page the user is attempting to edit. */
+        string page_ns;
+
+        /**
+            Current revision of the page the user is currently attempting
+            to edit, if available.\n\nFor action=saveAttempt, it is the old
+            revId for the page, since it is not yet known whether the edit
+            will succeed.\n\nIs updated to the latest revision for
+            action=saveSuccess events.
+        */
+        int page_revid;
+
+        /**
+            Length of the wikitext of the page the user is currently
+            attempting to edit.
+        */
+        int page_length;
+    }
+}
