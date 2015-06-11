@@ -39,8 +39,7 @@ curl -X GET http://localhost:8081/schemas/ids/$unique_schema_id
 curl -X GET http://localhost:8081/subjects/$schema_name/versions/$schema_version
 
 # Show just the .avsc JSON schema
-curl -X GET http://localhost:8081/schemas/ids/$unique_schema_id | jq .schema | ./json_unstringify.sh
-```
+curl -X GET http://localhost:8081/schemas/ids/$unique_schema_id 2>/dev/null | jq .schema | ./json_unstringify.sh | jq .```
 
 ## Confluent Kafka REST Proxy
 
