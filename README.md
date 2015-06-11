@@ -12,7 +12,7 @@ To generate the schmea files, download http://www.gtlib.gatech.edu/pub/apache/av
 and then
 
 ```
-java -jar ./avro-tools-1.7.7.jar idl2schemata EditEvent.idl schemas
+java -jar ./avro-tools-1.7.7.jar idl2schemata avro/idl/EditEvent.idl avro/schema
 ````
 
 Schema .avsc and also .java class generation would usually be automated by Maven plugins.
@@ -21,7 +21,7 @@ Schema .avsc and also .java class generation would usually be automated by Maven
 ### POSTing an Avro schema file to Confluent Schema Registry:
 ```bash
 curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
-  --data "{\"schema\": $(./avro_stringify.js ./schemas/EditEvent.avsc) }" \
+  --data "{\"schema\": $(./avro_stringify.js ./avro/schema/EditEvent.avsc) }" \
   http://localhost:8081/subjects/EditEvent/versions
 ```
 
