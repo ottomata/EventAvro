@@ -1,0 +1,42 @@
+{
+    "namespace": "org.wikimedia.mediawiki",
+    "type": "record",
+    "name": "EditEvent",
+    "fields" : [
+        {"name": "id", "type": "long"},
+        {"name": "type", "type": "string"},
+        {"name": "namespace", "type": "string"},
+        {"name": "title", "type": "string"},
+        {"name": "comment", "type": "string"},
+        {"name": "timestamp", "type": "long"},
+        {"name": "user", "type": "string"},
+        {"name": "bot", "type": "string"},
+        {"name": "server_url", "type": "string"},
+        {"name": "server_name", "type": "string"},
+        {"name": "server_script_path", "type": "string"},
+        {"name": "minor", "type": "boolean"},
+        {"name": "patrolled", "type": "boolean"},
+        {
+            "name": "length",
+            "type": {
+                "name": "EditEventLengths",
+                "type": "record",
+                "fields": [
+                    {"name": "old", "type": "long" },
+                    {"name": "new", "type": "long" }
+                ]
+            }
+        },
+        {
+            "name": "revision",
+            "type": {
+                "name": "EditEventRevisions",
+                "type": "record",
+                "fields": [
+                    {"name": "old", "type": "long" },
+                    {"name": "new", "type": "long" }
+                ]
+            }
+        }
+    ]
+}
