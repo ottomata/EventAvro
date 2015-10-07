@@ -1,0 +1,17 @@
+{
+    "title": "org.mediawiki.test.Simple",
+    "id": "file:///Users/otto/Projects/wm/analytics/EventAvro/jsonschema/Simple.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": ["ID", "name"],
+    "properties": {
+        "ID": {
+            "type": "integer",
+            "description": "The user id (0 if logged out).",
+            "default": 10
+        },
+        "name": {
+            "$ref": "jsonschema/Name.json#/properties/name"
+        }
+    }
+}

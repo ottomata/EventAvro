@@ -1,0 +1,24 @@
+{
+    "title": "Page",
+    "id": "file:///Users/otto/Projects/wm/analytics/EventAvro/jsonschema/Page.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "ID": {
+            "type": "integer",
+            "description": "ID of the page the user is attempting to edit."
+        },
+        "title": {
+            "type": "string",
+            "description": "Full title of the page the user is attempting to edit, including namespace (wgPageName format). This is needed to log edit activity on redlinks, as pageId and revId are not available."
+        },
+        "ns": {
+            "type": "integer",
+            "description": "Namespace ID of the page the user is attempting to edit."
+        },
+        "revid": {
+            "type": "integer",
+            "description": "Current revision of the page the user is currently attempting to edit, if available.\n\nFor action=saveAttempt, it is the old revId for the page, since it is not yet known whether the edit will succeed.\n\nIs updated to the latest revision for action=saveSuccess events."
+        }
+    }
+}
